@@ -17,8 +17,6 @@ main section {
   height: 100%;
   width: 100%;
   display: flex;
-  background-color: var(--bg-active-color);
-  padding: var(--padding-md) var(--padding-md);
   gap: var(--gutter-lg);
 }
 main section .left {
@@ -29,6 +27,7 @@ main section .left {
   flex-direction: column;
   width: 70%;
   gap: var(--gutter-lg);
+  border-radius: var(--border-radius-md);
 }
 main section .left .top {
   background-color: rgb(40, 73, 191);
@@ -36,6 +35,7 @@ main section .left .top {
   align-items: center;
   justify-content: space-between;
   padding: var(--padding-md);
+  border-radius: var(--border-radius-md);
 }
 main section .left .top label #image-input {
   background-color: gray;
@@ -63,6 +63,7 @@ main section .left .bottom {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border-radius: var(--border-radius-md);
 }
 main section .left .bottom .placeholder {
   display: flex;
@@ -78,5 +79,30 @@ main section .left .bottom .placeholder i {
 main section .right {
   height: 100%;
   width: 50%;
-  background-color: var(--bg-primary-color);
+  background-color: gray;
+  padding: var(--padding-md) var(--padding-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gutter-lg);
+  border-radius: var(--border-radius-md);
+}
+main section .right h2 {
+  text-align: center;
+}
+main section .right .filters {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gutter-md);
+  overflow-y: auto;
+  padding-right: var(--padding-sm);
+  height: 100%;
+}
+main section .right .filters .filter {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gutter-sm);
+}
+main section .right .filters .filter input {
+  width: 100%;
 }/*# sourceMappingURL=style.css.map */
