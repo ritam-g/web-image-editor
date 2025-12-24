@@ -12,7 +12,85 @@
     height: 100vh;
     width: 100vw;
 }
+@mixin halfWidth(){
+  height: 100%;
+      width: 50%;
+}
 main{
     @include fullscreen();
     background-color: var(--bg-primary-color);
+    padding: var(--padding-xl) var(--padding-xl);
+    background-color: var(--bg-primary-color);
+    color: var(--text-primary-color);
+    section{
+      height: 100%;
+      width: 100%;
+      display: flex;
+      background-color: var(--bg-active-color);
+      padding: var(--padding-md) var(--padding-md);
+      gap: var(--gutter-lg);
+      .left{
+        @include halfWidth();
+        background-color: var(--bg-primary-color);
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        gap: var(--gutter-lg);
+        .top{
+          background-color: rgb(40, 73, 191);
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: var(--padding-md);
+          label{
+            #image-input{
+              background-color: gray;
+            }
+            
+          }
+          .btn{
+              padding: var(--padding-sm) var(--padding-sm);
+              border: none;
+              outline: none;
+              border-radius: var(--border-radius-md);
+              background-color: var(--bg-active-color);
+              cursor: pointer;
+            }
+            #reset{
+              background-color: var(--bg-denger-color);
+              color: var(--text-primary-color);
+            }
+            #Download{
+              background-color: var(--bg-success-color);
+              color: var(--text-primary-color);
+            }
+        }
+        .bottom{
+          
+          height: 100%;
+          border-radius: var(--border-radius-md);
+          display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .placeholder{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary-color);
+            font-size: 1.2rem;
+            i{
+              font-size: var(--font-xxl);
+            }
+            }
+          
+        }
+      }
+      .right{
+        @include halfWidth();
+        background-color: var(--bg-primary-color);
+      }
+      
+    }
 }

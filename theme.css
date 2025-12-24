@@ -3,6 +3,8 @@
     --bg-primary-color: #242323;
     --bg-secondary-color: #1e1e1e;
     --bg-active-color:rgb(217, 217, 217);
+    --bg-denger-color:#ff4c4c;
+    --bg-success-color:#4caf50;
 
     /* textc olor */
     --text-primary-color: #ffffff;
@@ -44,6 +46,7 @@
     --font-md:1rem;
     --font-lg:1.25rem;
     --font-xl:1.5rem;
+    --font-xxl:2rem;
 
     /* border-radius */
     --border-radius-sm:0.25rem;

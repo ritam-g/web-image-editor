@@ -9,4 +9,74 @@ main {
   height: 100vh;
   width: 100vw;
   background-color: var(--bg-primary-color);
+  padding: var(--padding-xl) var(--padding-xl);
+  background-color: var(--bg-primary-color);
+  color: var(--text-primary-color);
+}
+main section {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  background-color: var(--bg-active-color);
+  padding: var(--padding-md) var(--padding-md);
+  gap: var(--gutter-lg);
+}
+main section .left {
+  height: 100%;
+  width: 50%;
+  background-color: var(--bg-primary-color);
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  gap: var(--gutter-lg);
+}
+main section .left .top {
+  background-color: rgb(40, 73, 191);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--padding-md);
+}
+main section .left .top label #image-input {
+  background-color: gray;
+}
+main section .left .top .btn {
+  padding: var(--padding-sm) var(--padding-sm);
+  border: none;
+  outline: none;
+  border-radius: var(--border-radius-md);
+  background-color: var(--bg-active-color);
+  cursor: pointer;
+}
+main section .left .top #reset {
+  background-color: var(--bg-denger-color);
+  color: var(--text-primary-color);
+}
+main section .left .top #Download {
+  background-color: var(--bg-success-color);
+  color: var(--text-primary-color);
+}
+main section .left .bottom {
+  height: 100%;
+  border-radius: var(--border-radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+main section .left .bottom .placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary-color);
+  font-size: 1.2rem;
+}
+main section .left .bottom .placeholder i {
+  font-size: var(--font-xxl);
+}
+main section .right {
+  height: 100%;
+  width: 50%;
+  background-color: var(--bg-primary-color);
 }/*# sourceMappingURL=style.css.map */
