@@ -9,8 +9,7 @@ main {
   height: 100vh;
   width: 100vw;
   background-color: var(--bg-primary-color);
-  padding: var(--padding-xl) var(--padding-xl);
-  background-color: var(--bg-primary-color);
+  padding: var(--padding-xl);
   color: var(--text-primary-color);
 }
 main section {
@@ -41,7 +40,7 @@ main section .left .top label #image-input {
   background-color: gray;
 }
 main section .left .top .btn {
-  padding: var(--padding-sm) var(--padding-sm);
+  padding: var(--padding-sm);
   border: none;
   outline: none;
   border-radius: var(--border-radius-md);
@@ -59,13 +58,15 @@ main section .left .top #Download {
 main section .left .bottom {
   height: 100%;
   border-radius: var(--border-radius-md);
+  background-color: white;
+  position: relative;
+  width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: var(--border-radius-md);
 }
 main section .left .bottom .placeholder {
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,11 +77,16 @@ main section .left .bottom .placeholder {
 main section .left .bottom .placeholder i {
   font-size: var(--font-xxl);
 }
+main section .left .bottom canvas {
+  background-color: gray;
+  width: 700px;
+  height: 500px;
+}
 main section .right {
   height: 100%;
   width: 50%;
   background-color: gray;
-  padding: var(--padding-md) var(--padding-md);
+  padding: var(--padding-md);
   display: flex;
   flex-direction: column;
   gap: var(--gutter-lg);

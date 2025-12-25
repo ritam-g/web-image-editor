@@ -60,6 +60,9 @@ const filters = {
     unit:"%"
   }
 };
+const imgeCanvas=document.querySelector("#image-canvase")
+const ctx=imgeCanvas.getContext("2d");//! it will give the pen 
+const imageSelect=document.querySelector("#image-input")
 function createFilter(name,unit='%',value,min,max) {
     const filter=document.createElement('div');
     filter.classList.add('filter');
@@ -82,3 +85,16 @@ Object.keys(filters).forEach(key=>{
     document.querySelector('.filters').appendChild(filter);
     
 })
+imageSelect.addEventListener("change", (data) => {
+  const file=data.target.files[0];
+  const img=new Image();
+  img.src=URL.createObjectURL(file);
+  img.onload=()=>{
+    imgeCanvas.width=img.width;
+    imgeCanvas.height=img.height;
+    ctx.drawImage(img,0,0);
+  }
+});
+
+
+

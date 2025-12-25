@@ -1,0 +1,132 @@
+Great question 👌
+You’re asking something VERY IMPORTANT about .onload and why we don’t manually call functions there.
+I’ll explain slowly, easy, Hinglish, with a diagram-style explanation.
+
+🧠 First, simple answer (one line)
+
+👉 .onload is an EVENT, not a normal function.
+👉 Browser automatically calls it when loading is finished.
+
+You do NOT call it manually.
+
+🔹 Step-by-step Hinglish Explanation
+
+Let’s take this code again 👇
+
+reader.onload = function () {
+  console.log("File loaded");
+};
+
+❓ Your doubt:
+
+“Normally hume function call karna padta hai, yaha kyun nahi?”
+
+✅ Answer:
+
+Because .onload browser ka signal hai, not your function.
+
+🟦 Real-Life Example (Very Easy)
+🏠 Think like this:
+
+You ordered food 🍕
+You tell Swiggy:
+
+“WHEN food arrives, call me.”
+
+You don’t call yourself.
+Delivery boy calls you when food arrives.
+
+Same thing here 👇
+
+🔹 How .onload works internally
+1️⃣ You say:
+reader.onload = function () {
+  // kya karna hai jab load complete ho
+};
+
+
+Meaning:
+
+“Hey browser, jab file load ho jaye, ye kaam karna”
+
+2️⃣ Browser loads file (time lagta hai ⏳)
+3️⃣ Browser says:
+
+“Okay, file load ho gayi”
+
+4️⃣ Browser AUTOMATICALLY runs:
+function () {
+  // your code
+}
+
+
+⚠️ Isliye manually call nahi karte
+
+🎨 Colorful Text Diagram (Conceptual)
+┌───────────────┐
+│ User selects  │
+│ image file    │
+└───────┬───────┘
+        │
+        ▼
+┌──────────────────────┐
+│ FileReader starts    │
+│ reading file         │
+└───────┬──────────────┘
+        │   (time ⏳)
+        ▼
+┌──────────────────────┐
+│ File completely read │
+│ (DONE)               │
+└───────┬──────────────┘
+        │
+        ▼
+🟢 reader.onload FIRES
+        │
+        ▼
+┌──────────────────────┐
+│ Your function runs   │
+│ automatically        │
+└──────────────────────┘
+
+🔹 Same logic for img.onload
+img.onload = function () {
+  ctx.drawImage(img, 0, 0);
+};
+
+Meaning:
+
+“Jab image fully load ho jaye, tab canvas pe draw karo”
+
+⚠️ Image load hone se pehle draw karoge → ❌ ERROR / blank
+
+🧠 Why .onload is IMPORTANT
+❌ Without .onload
+img.src = "image.png";
+ctx.drawImage(img, 0, 0); // image maybe load hi nahi hui
+
+✅ With .onload
+img.onload = function () {
+  ctx.drawImage(img, 0, 0); // safe
+};
+
+
+👉 Because loading takes time
+
+🔹 Short Rule (Yaad rakhna)
+
+🔥 Whenever kaam future me hoga → EVENT use hota hai
+
+.onload, .onclick, .onchange
+
+📌 Final Summary (Hinglish)
+
+.onload = browser ka event
+
+Tum function assign karte ho
+
+Browser khud call karta hai
+
+Async ka kaam safe banata hai
+
+Manual call ❌ allowed nahi
