@@ -46,6 +46,7 @@ main {
         border-radius: var(--border-radius-md);
 
         label {
+          color: var(--bg-primary-color);
           #image-input {
             background-color: gray;
           }
@@ -74,13 +75,13 @@ main {
       .bottom {
         height: 100%;
         border-radius: var(--border-radius-md);
-        background-color: white;
-        position: relative;
+        background-color: gray;
+        
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-
+        
 
         .placeholder {
           position: absolute;
@@ -90,6 +91,7 @@ main {
           justify-content: center;
           color: var(--text-primary-color);
           font-size: 1.2rem;
+          visibility: hidden;
 
           i {
             font-size: var(--font-xxl);
@@ -98,8 +100,9 @@ main {
 
         canvas {
           background-color: gray;
-          width: 700px;
-          height:500px;
+          max-height: 500px;
+          max-width: 700px;
+          
           
           
         }

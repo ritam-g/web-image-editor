@@ -36,6 +36,9 @@ main section .left .top {
   padding: var(--padding-md);
   border-radius: var(--border-radius-md);
 }
+main section .left .top label {
+  color: var(--bg-primary-color);
+}
 main section .left .top label #image-input {
   background-color: gray;
 }
@@ -58,8 +61,7 @@ main section .left .top #Download {
 main section .left .bottom {
   height: 100%;
   border-radius: var(--border-radius-md);
-  background-color: white;
-  position: relative;
+  background-color: gray;
   width: 100%;
   display: flex;
   align-items: center;
@@ -73,14 +75,15 @@ main section .left .bottom .placeholder {
   justify-content: center;
   color: var(--text-primary-color);
   font-size: 1.2rem;
+  visibility: hidden;
 }
 main section .left .bottom .placeholder i {
   font-size: var(--font-xxl);
 }
 main section .left .bottom canvas {
   background-color: gray;
-  width: 700px;
-  height: 500px;
+  max-height: 500px;
+  max-width: 700px;
 }
 main section .right {
   height: 100%;
