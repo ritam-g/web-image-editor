@@ -1,80 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Basic -->
+  <!-- ==================================================
+       BASIC META CONFIGURATION
+       ================================================== -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  <!-- Title & SEO -->
+  <!-- ==================================================
+       TITLE & SEO METADATA
+       Improves search engine visibility
+       ================================================== -->
   <title>Image Editor | Canvas Filter Playground</title>
   <meta name="description" content="A canvas-based image editor with real-time filters like brightness, contrast, blur, and hue rotation." />
   <meta name="keywords" content="canvas image editor, javascript canvas, image filters, brightness, blur, hue rotate" />
   <meta name="author" content="Ritam" />
 
-  <!-- Theme & Mobile -->
+  <!-- ==================================================
+       THEME & MOBILE CONFIGURATION
+       ================================================== -->
   <meta name="theme-color" content="#0f172a" />
   <meta name="color-scheme" content="dark light" />
 
-  <!-- Favicon -->
+  <!-- ==================================================
+       FAVICON & APP ICONS
+       ================================================== -->
   <link rel="icon" href="./download-removebg-preview.png" type="image/x-icon" />
   <link rel="apple-touch-icon" href="/assets/icon-192.png" />
 
-  <!-- Open Graph (Facebook / LinkedIn / WhatsApp) -->
+  <!-- ==================================================
+       OPEN GRAPH (SOCIAL SHARING)
+       Used by WhatsApp, LinkedIn, Facebook
+       ================================================== -->
   <meta property="og:title" content="Canvas Image Editor" />
   <meta property="og:description" content="Edit images using real-time canvas filters with JavaScript." />
   <meta property="og:image" content="/assets/preview.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://your-site-url.com" />
 
-  <!-- Twitter Card -->
+  <!-- ==================================================
+       TWITTER CARD METADATA
+       ================================================== -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Canvas Image Editor" />
   <meta name="twitter:description" content="Real-time image editing using HTML Canvas filters." />
   <meta name="twitter:image" content="/assets/preview.png" />
 
-  <!-- Icons -->
+  <!-- ==================================================
+       ICON LIBRARY
+       ================================================== -->
   <link
     href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
     rel="stylesheet"
   />
 
-  <!-- Styles -->
+  <!-- ==================================================
+       STYLESHEETS
+       ================================================== -->
   <link rel="stylesheet" href="theme.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <main>
-        <section>
-            <!--! LEFT PART --->
-            <div class="left">
-                <div class="top">
-                    <label for="image-input" class="btn">
-                        Choose Image
-                        <input type="file" name="" id="image-input" accept="Image/*" hidden>
-                    </label>
-                    <button class="btn" id="reset">Reset</button>
-                    <button class="btn" id="Download">Dowenload</button>
-                </div>
-                <div class="bottom">
-                    <div class="placeholder">
-                        <i class="ri-image-line"></i>
-                        <p>No Image Choosen</p>
-                    </div>
-                    <canvas id="image-canvase">
-                        
-                    </canvas>
-                </div>
-            </div>
-            <!--! RGIGHT PART --->
-            <div class="right">
-                <h2>Filters</h2>
-                <div class="filters">
-                    <!-- ! HERE ELEMENT WILL COME USING JS  -->
-            </div>
-        </section>
-    </main>
-    <script src="script.js"></script>
+  <!-- ==================================================
+       MAIN APPLICATION WRAPPER
+       ================================================== -->
+  <main>
+    <section>
+
+      <!-- ==================================================
+           LEFT PANEL
+           Image upload, canvas preview, actions
+           ================================================== -->
+      <div class="left">
+
+        <!-- Top control bar -->
+        <div class="top">
+          <!-- Image selection button -->
+          <label for="image-input" class="btn">
+            Choose Image
+            <input type="file" id="image-input" accept="Image/*" hidden />
+          </label>
+
+          <!-- Reset filters button -->
+          <button class="btn" id="reset">Reset</button>
+
+          <!-- Download edited image -->
+          <button class="btn" id="Download">Dowenload</button>
+        </div>
+
+        <!-- Canvas preview area -->
+        <div class="bottom">
+
+          <!-- Placeholder shown when no image is selected -->
+          <div class="placeholder">
+            <i class="ri-image-line"></i>
+            <p>No Image Choosen</p>
+          </div>
+
+          <!-- Canvas where image and filters are rendered -->
+          <canvas id="image-canvase"></canvas>
+        </div>
+      </div>
+
+      <!-- ==================================================
+           RIGHT PANEL
+           Filter controls (generated via JavaScript)
+           ================================================== -->
+      <div class="right">
+        <h2>Filters</h2>
+
+        <!-- Filter sliders will be injected here dynamically -->
+        <div class="filters">
+          <!-- JS renders filter controls -->
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- ==================================================
+       APPLICATION SCRIPT
+       ================================================== -->
+  <script src="script.js"></script>
 </body>
 </html>
