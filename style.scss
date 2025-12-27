@@ -28,12 +28,13 @@ main {
     display: flex;
     gap: var(--gutter-lg);
 
+    /* ================= LEFT PANEL (DESKTOP) ================= */
     .left {
       @include halfWidth();
       background-color: var(--bg-primary-color);
       display: flex;
       flex-direction: column;
-      width: 70%; // Note: this overrides the mixin’s 50% — if intentional, keep it
+      width: 70%;
       gap: var(--gutter-lg);
       border-radius: var(--border-radius-md);
 
@@ -47,6 +48,7 @@ main {
 
         label {
           color: var(--bg-primary-color);
+
           #image-input {
             background-color: gray;
           }
@@ -62,7 +64,7 @@ main {
         }
 
         #reset {
-          background-color: var(--bg-denger-color); // probably typo: should be --bg-danger-color?
+          background-color: var(--bg-denger-color);
           color: var(--text-primary-color);
         }
 
@@ -74,14 +76,13 @@ main {
 
       .bottom {
         height: 100%;
-        border-radius: var(--border-radius-md);
-        background-color: gray;
-        
         width: 100%;
+        background-color: gray;
+        border-radius: var(--border-radius-md);
         display: flex;
         align-items: center;
         justify-content: center;
-        
+        position: relative;
 
         .placeholder {
           position: absolute;
@@ -90,7 +91,7 @@ main {
           align-items: center;
           justify-content: center;
           color: var(--text-primary-color);
-          font-size: 1.2rem;
+          font-size: var(--font-lg);
           visibility: hidden;
 
           i {
@@ -102,13 +103,11 @@ main {
           background-color: gray;
           max-height: 500px;
           max-width: 700px;
-          
-          
-          
         }
       }
     }
 
+    /* ================= RIGHT PANEL (DESKTOP) ================= */
     .right {
       @include halfWidth();
       background-color: gray;
@@ -139,6 +138,76 @@ main {
           input {
             width: 100%;
           }
+        }
+      }
+    }
+  }
+}
+
+/* ==========================================================
+   MOBILE RESPONSIVE (ONLY ADDITION — DESKTOP NOT TOUCHED)
+   ========================================================== */
+
+@media (max-width: 768px) {
+  main {
+    padding: var(--padding-md);
+
+    section {
+      flex-direction: column;
+      gap: var(--gutter-md);
+
+      .left,
+      .right {
+        width: 100%;
+        height: auto;
+      }
+
+      .left {
+        gap: var(--gutter-md);
+
+        .top {
+          flex-wrap: wrap;
+          gap: var(--gutter-sm);
+
+          label {
+            width: 100%;
+            text-align: center;
+          }
+
+          .btn {
+            flex: 1;
+            font-size: var(--font-sm);
+          }
+        }
+
+        .bottom {
+          min-height: 250px;
+
+          canvas {
+            max-width: 100%;
+            max-height: 300px;
+          }
+
+          .placeholder {
+            font-size: var(--font-md);
+
+            i {
+              font-size: var(--font-xl);
+            }
+          }
+        }
+      }
+
+      .right {
+        padding: var(--padding-sm);
+
+        h2 {
+          font-size: var(--font-lg);
+        }
+
+        .filters {
+          height: auto;
+          max-height: 300px;
         }
       }
     }

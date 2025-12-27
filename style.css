@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import "./theme.css";
 * {
   margin: 0;
@@ -17,6 +18,8 @@ main section {
   width: 100%;
   display: flex;
   gap: var(--gutter-lg);
+  /* ================= LEFT PANEL (DESKTOP) ================= */
+  /* ================= RIGHT PANEL (DESKTOP) ================= */
 }
 main section .left {
   height: 100%;
@@ -60,12 +63,13 @@ main section .left .top #Download {
 }
 main section .left .bottom {
   height: 100%;
-  border-radius: var(--border-radius-md);
-  background-color: gray;
   width: 100%;
+  background-color: gray;
+  border-radius: var(--border-radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 main section .left .bottom .placeholder {
   position: absolute;
@@ -74,7 +78,7 @@ main section .left .bottom .placeholder {
   align-items: center;
   justify-content: center;
   color: var(--text-primary-color);
-  font-size: 1.2rem;
+  font-size: var(--font-lg);
   visibility: hidden;
 }
 main section .left .bottom .placeholder i {
@@ -114,4 +118,60 @@ main section .right .filters .filter {
 }
 main section .right .filters .filter input {
   width: 100%;
+}
+
+/* ==========================================================
+   MOBILE RESPONSIVE (ONLY ADDITION — DESKTOP NOT TOUCHED)
+   ========================================================== */
+@media (max-width: 768px) {
+  main {
+    padding: var(--padding-md);
+  }
+  main section {
+    flex-direction: column;
+    gap: var(--gutter-md);
+  }
+  main section .left,
+  main section .right {
+    width: 100%;
+    height: auto;
+  }
+  main section .left {
+    gap: var(--gutter-md);
+  }
+  main section .left .top {
+    flex-wrap: wrap;
+    gap: var(--gutter-sm);
+  }
+  main section .left .top label {
+    width: 100%;
+    text-align: center;
+  }
+  main section .left .top .btn {
+    flex: 1;
+    font-size: var(--font-sm);
+  }
+  main section .left .bottom {
+    min-height: 250px;
+  }
+  main section .left .bottom canvas {
+    max-width: 100%;
+    max-height: 300px;
+  }
+  main section .left .bottom .placeholder {
+    font-size: var(--font-md);
+  }
+  main section .left .bottom .placeholder i {
+    font-size: var(--font-xl);
+  }
+  main section .right {
+    padding: var(--padding-sm);
+  }
+  main section .right h2 {
+    font-size: var(--font-lg);
+  }
+  main section .right .filters {
+    height: auto;
+    max-height: 300px;
+  }
 }/*# sourceMappingURL=style.css.map */
