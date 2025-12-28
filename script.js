@@ -64,14 +64,16 @@ let filters = {
 // ================================
 const imgeCanvas = document.querySelector("#image-canvase");
 const ctx = imgeCanvas.getContext("2d"); // Canvas drawing context
-const imageSelect = document.querySelector("#image-input");
+const imageSelect = document.querySelector("#image-input");//image-input
 const placeholder = document.querySelector(".placeholder");
 const resetButton = document.querySelector("#reset");
 const download = document.querySelector("button#Download");
-
+const bottom=document.querySelector(".bottom")
 placeholder.style.visibility = "visible";
 let image = null; // Holds the currently loaded image
-
+bottom.addEventListener("click",()=>{
+  imageSelect.click()
+})
 // ================================
 // CREATE A SINGLE FILTER UI CONTROL
 // ================================
