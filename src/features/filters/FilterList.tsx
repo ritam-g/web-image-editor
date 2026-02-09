@@ -8,11 +8,13 @@ interface FilterListProps {
 export function FilterList({ filters, onFilterChange }: FilterListProps) {
   return (
     <div className="right">
-      <h2>Filters</h2>
       <div className="filters">
         {Object.entries(filters).map(([name, config]) => (
           <div key={name} className="filter">
-            <p>{name}</p>
+            <p>
+              <span>{name.replace("-", " ")}</span>
+              <span>{config.value}{config.unit}</span>
+            </p>
             <input
               type="range"
               min={config.min}

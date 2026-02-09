@@ -3,28 +3,50 @@ import "./App.scss";
 import { useImageEditor } from "./hooks/useImageEditor";
 import { Toolbar } from "./features/controls/Toolbar";
 import { CanvasPreview } from "./components/CanvasPreview";
-import { FilterList } from "./features/filters/FilterList";
+import { Sidebar } from "./features/controls/Sidebar";
 
 function App() {
   const {
     canvasRef,
     image,
     filters,
+    transform,
+    canUndo,
+    canRedo,
     loadImage,
     updateFilter,
+    updateTransform,
     resetFilters,
     downloadImage,
+    undo,
+    redo,
+    crop,
+    isComparing,
+    setIsComparing,
   } = useImageEditor();
 
   return (
-    <main>
-      <section>
-        <div className="left">
-          <Toolbar
-            onImageSelect={loadImage}
-            onReset={resetFilters}
-            onDownload={downloadImage}
-          />
+    <div className="app-container">
+      <Toolbar
+        onImageSelect={loadImage}
+        onReset={resetFilters}
+        onDownload={downloadImage}
+        onUndo={undo}
+        onRedo={redo}
+        onCompareChange={setIsComparing}
+        isComparing={isComparing}
+        canUndo={canUndo}
+        canRedo={canRedo}
+      />
+      <main className="editor-main">
+        <Sidebar
+          filters={filters}
+          transform={transform}
+          onFilterChange={updateFilter}
+          onTransformChange={updateTransform}
+          onCrop={crop}
+        />
+        <section className="canvas-area">
           <CanvasPreview
             canvasRef={canvasRef}
             hasImage={!!image}
@@ -33,10 +55,9 @@ function App() {
               input?.click();
             }}
           />
-        </div>
-        <FilterList filters={filters} onFilterChange={updateFilter} />
-      </section>
-    </main>
+        </section>
+      </main>
+    </div>
   );
 }
 

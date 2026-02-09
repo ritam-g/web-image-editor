@@ -18,7 +18,20 @@ export type FilterType =
 
 export type Filters = Record<FilterType, FilterConfig>;
 
+export interface Transform {
+  rotate: number; // 0, 90, 180, 270
+  flipH: boolean;
+  flipV: boolean;
+}
+
+export interface CropArea {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+}
+
 export interface EditorState {
-  image: HTMLImageElement | null;
   filters: Filters;
+  transform: Transform;
 }
