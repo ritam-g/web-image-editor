@@ -17,7 +17,7 @@ export function CanvasPreview({ canvasRef, hasImage, onPlaceholderClick }: Canva
         </div>
       )}
       <canvas
-        id="image-canvase"
+        id="image-canvas"
         ref={canvasRef}
         style={{ display: hasImage ? "block" : "none" }}
       ></canvas>

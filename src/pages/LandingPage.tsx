@@ -261,9 +261,9 @@ export function LandingPage() {
           <div>
             <h4 className="font-bold mb-6">Social</h4>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-500/20 hover:text-blue-500 transition-all"><i className="ri-twitter-x-line" /></a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-500/20 hover:text-blue-500 transition-all"><i className="ri-github-line" /></a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-500/20 hover:text-blue-500 transition-all"><i className="ri-instagram-line" /></a>
+              <a href="https://x.com/maty_ritam" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-500/20 hover:text-blue-500 transition-all"><i className="ri-twitter-x-line" /></a>
+              <a href="https://github.com/ritam-g" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-500/20 hover:text-blue-500 transition-all"><i className="ri-github-line" /></a>
+              <a href="https://www.linkedin.com/in/ritammaty/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-500/20 hover:text-blue-500 transition-all"><i className="ri-linkedin-line" /></a>
             </div>
           </div>
         </div>
