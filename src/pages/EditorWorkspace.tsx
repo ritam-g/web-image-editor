@@ -3,6 +3,8 @@ import { Toolbar } from "../features/controls/Toolbar";
 import { CanvasPreview } from "../components/CanvasPreview";
 import { Sidebar } from "../features/controls/Sidebar";
 
+import { Helmet } from "react-helmet-async";
+
 export function EditorWorkspace() {
   const {
     canvasRef,
@@ -25,6 +27,10 @@ export function EditorWorkspace() {
 
   return (
     <div className="app-container">
+      <Helmet>
+        <title>Workspace - Image Editor Pro</title>
+        <meta name="description" content="Edit your images with professional tools using Image Editor Pro." />
+      </Helmet>
       <Toolbar
         onImageSelect={loadImage}
         onReset={resetFilters}

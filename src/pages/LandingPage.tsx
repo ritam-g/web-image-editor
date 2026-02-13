@@ -2,6 +2,8 @@ import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, AnimatePresence } from "framer-motion";
 
+import { Helmet } from "react-helmet-async";
+
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
@@ -25,6 +27,26 @@ export function LandingPage() {
 
   return (
     <div className="landing-page" ref={containerRef}>
+      <Helmet>
+        <title>Image Editor Pro - Professional Online Photo Editor</title>
+        <meta name="description" content="Transform your images with precision. The most powerful browser-based editor with filters, cropping, and professional tools. Free, private, and secure." />
+        <meta name="keywords" content="image editor, photo editor, online editor, crop image, filter image, privacy first" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://image-editor-pro.com/" />
+        <meta property="og:title" content="Image Editor Pro - Professional Online Photo Editor" />
+        <meta property="og:description" content="Transform your images with precision. The most powerful browser-based editor with filters, cropping, and professional tools." />
+        <meta property="og:image" content="/Public/metaicon2.png" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://image-editor-pro.com/" />
+        <meta property="twitter:title" content="Image Editor Pro - Professional Online Photo Editor" />
+        <meta property="twitter:description" content="Transform your images with precision. The most powerful browser-based editor with filters, cropping, and professional tools." />
+        <meta property="twitter:image" content="/Public/metaicon2.png" />
+      </Helmet>
+
       {/* Header */}
       <header className="landing-header">
         <Link to="/" className="logo">
