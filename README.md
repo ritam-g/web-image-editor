@@ -1,73 +1,86 @@
-# React + TypeScript + Vite
+# Image Editor Pro 🎨
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, fast, and feature-rich Image Editor built using **React**, **TypeScript**, and **Vite**. This application leverages the HTML5 Canvas API to provide professional-grade image manipulation directly in the browser, ensuring quick performance and privacy (all edits happen client-side).
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Rich Image Filters**: Adjust Brightness, Contrast, Saturation, Hue Rotation, Blur, Grayscale, Sepia, Opacity, and Invert.
+- **Transformations**: Freely rotate and flip (horizontal/vertical) images.
+- **Cropping Tool**: Crop images using various aspect ratios or freely.
+- **Undo / Redo History**: Confidently edit with a full history stack.
+- **Compare Mode**: Instantly check your edits against the original image.
+- **Client-Side Editing**: Images are manipulated entirely in the browser via Canvas API, ensuring no data leaves the user's device.
+- **Download**: Save your edited master-pieces directly to your device as PNG.
 
-## React Compiler
+## 💻 Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Framework**: React 19 (Hooks, Functional Components)
+- **Tooling**: Vite (Fast HMR & Optimized Builds)
+- **Language**: TypeScript (Type safety across components and hooks)
+- **Styling**: SCSS / CSS
+- **Routing**: React Router DOM (Landing Page & Editor Workspace)
+- **SEO & Meta**: React Helmet Async
 
-## Expanding the ESLint configuration
+## 📂 Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```text
+src/
+├── api/             # API Integrations (if any in future)
+├── assets/          # Static assets like images and icons
+├── components/      # Reusable UI components (CanvasPreview, Forms, etc.)
+├── features/        # Feature-specific components
+│   ├── controls/    # Toolbar, Sidebar, and Editor Controls
+│   └── filters/     # Filter adjustment sliders/inputs
+├── hooks/           # Custom hooks
+│   └── useImageEditor.ts # Core logic for Canvas image manipulation
+├── layouts/         # Layout wrappers
+├── pages/           # Page-level components
+│   ├── LandingPage.tsx   # Intro & CTA
+│   └── EditorWorkspace.tsx # The Main App Interface
+├── types/           # TypeScript definitions (editor states, filters, etc.)
+├── App.tsx          # Main Router Setup
+└── main.tsx         # Application Entry Point
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ⚙️ How the Image Loading & Editing Works (Flow)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```mermaid
+graph TD
+    A[User Selects Image] -->|File Input| B(FileReader creates Object URL)
+    B --> C{Image Loads onLoad Event}
+    C -->|Success| D[Image Object preserved in state]
+    C -->|Error| E[Show Error Message]
+    
+    D --> F[useImageEditor Hook Calculates Edits]
+    F -->|Apply Filters| G[Filter String e.g. brightness, blur]
+    F -->|Apply Transform| H[Translate, Rotate & Scale context]
+    
+    G --> I(Draw on HTML5 Canvas)
+    H --> I
+    I --> J[CanvasPreview Component Renders Image]
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+    J -->|User Adjusts Slider| F
+    J -->|User Clicks Download| K[Canvas .toDataURL exported as PNG]
 ```
+
+*Note on Image Loading: The application relies strictly on the `onload` asynchronous event to ensure the image object is fully loaded into memory before painting it onto the Context 2D canvas.*
+
+## 🚀 Getting Started
+
+1. **Install Dependencies**
+   ```bash
+   npm install
+   ```
+
+2. **Run Development Server**
+   ```bash
+   npm run dev
+   ```
+
+3. **Build for Production**
+   ```bash
+   npm run build
+   ```
+
+## 📜 License
+This project is for educational and portfolio purposes.
